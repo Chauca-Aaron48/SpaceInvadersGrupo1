@@ -1,30 +1,27 @@
 package Logica;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collection;
 
-public abstract class NaveEnemigo extends Logica.Nave{
+public class NaveEnemigoUno extends Logica.Nave{
     private static final int ANCHO_NAVE_ENEMIGO = 64;
-    public static final int VELOCIDAD_DEL_ENEMIGO = 1;
-    protected static final int NUMERO_DE_ENEMIGOS_DEL_ENJAMBRE = 7;
     private int PosicionEnX;
     private int PosicionEnY;
     private int velocidad;
 
-    protected NaveEnemigo[] filaDeEnemigos = new NaveEnemigo[NUMERO_DE_ENEMIGOS_DEL_ENJAMBRE];
 
-    public NaveEnemigo(int x, int y) {
+    public NaveEnemigoUno(int x, int y) {
         this.PosicionEnX = x;
         this.PosicionEnY = y;
-        iniciarEnemigo();
+        iniciarEnemigoUno();
+
     }
 
-    protected void iniciarEnemigo() {
-        velocidad = VELOCIDAD_DEL_ENEMIGO; //velocidad de los enemigos, puse un cast en el metodo obtenerHitbox()
+    private void iniciarEnemigoUno() {
+        velocidad = 1; //velocidad de los enemigos, puse un cast en el metodo obtenerHitbox()
     }
 
     public void mover(int direccion) {
         PosicionEnX += velocidad * direccion;
+
         //todo darle responsabilidad unica a la velocidad y a la direccion
     }
 
@@ -38,7 +35,7 @@ public abstract class NaveEnemigo extends Logica.Nave{
 
     @Override
     public int obtenerPosicionEnX() {
-        return PosicionEnX;
+        return (int) PosicionEnX;
     }
 
     @Override

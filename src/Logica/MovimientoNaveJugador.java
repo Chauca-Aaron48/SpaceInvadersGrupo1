@@ -16,19 +16,19 @@ public class MovimientoNaveJugador implements Movimiento {
     @Override
     public void mover() {
         posicionEnX += distanciaDesplazada;
-        if (estaEnElLimiteDerecho()) {
-            posicionEnX = LIMITE_DERECHO - ANCHO_NAVE;
-        }
         if (estaEnElLimiteIzquierdo()) {
             posicionEnX = 0;
         }
-    }
-
-    private boolean estaEnElLimiteIzquierdo() {
-        return posicionEnX < 0;
+        if (estaEnElLimiteDerecho()) {
+            posicionEnX = LIMITE_DERECHO - ANCHO_NAVE;
+        }
     }
 
     private boolean estaEnElLimiteDerecho() {
+        return posicionEnX < 0;
+    }
+
+    private boolean estaEnElLimiteIzquierdo() {
         return posicionEnX > LIMITE_DERECHO - ANCHO_NAVE;
     }
 
